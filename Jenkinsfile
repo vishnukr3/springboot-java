@@ -53,7 +53,7 @@ pipeline {
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@3.21.55.49 run -d -p 8003:8080 vkr1998/Springboot-java"
+                sh "docker -H ssh://jenkins@3.142.230.219 run -d -p 8003:8080 vkr1998/Springboot-java"
  
             }
         }
