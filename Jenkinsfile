@@ -25,8 +25,8 @@ pipeline {
            steps {
               
                 sh 'docker build -t springboot-java:latest .' 
-                sh 'docker tag Springboot-java vkr1998/Springboot-java:latest'
-                //sh 'docker tag Springboot-java nikhilnidhi/Springboot-java:$BUILD_NUMBER'
+                sh 'docker tag Springboot-java vkr1998/springboot-java:latest'
+                //sh 'docker tag springboot-java nikhilnidhi/Springboot-java:$BUILD_NUMBER'
                
           }
         }
@@ -35,8 +35,8 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-          sh  'docker push vkr1998/Springboot-java:latest'
-        //  sh  'docker push vkr1998/Springboot-java:$BUILD_NUMBER' 
+          sh  'docker push vkr1998/springboot-java:latest'
+        //  sh  'docker push vkr1998/springboot-java:$BUILD_NUMBER' 
         }
                   
           }
@@ -46,14 +46,14 @@ pipeline {
              
             steps 
 			{
-                sh "docker run -d -p 8003:8080 vkr1998/Springboot-java"
+                sh "docker run -d -p 8003:8080 vkr1998/springboot-java"
  
             }
         }
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@18.223.109.244 run -d -p 8003:8080 vkr1998/Springboot-java"
+                sh "docker -H ssh://jenkins@18.223.109.244 run -d -p 8003:8080 vkr1998/springboot-java"
  
             }
         }
