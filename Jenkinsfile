@@ -24,7 +24,7 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t Springboot-java:latest .' 
+                sh 'docker build -t springboot-java:latest .' 
                 sh 'docker tag Springboot-java vkr1998/Springboot-java:latest'
                 //sh 'docker tag Springboot-java nikhilnidhi/Springboot-java:$BUILD_NUMBER'
                
